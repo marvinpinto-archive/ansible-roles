@@ -1,0 +1,13 @@
+---
+- name: 'Ensure the /etc/apt/sources.list file does not exist'
+  sudo: 'yes'
+  file:
+    path: '/etc/apt/sources.list'
+    state: 'absent'
+
+- name: 'Add the base ubuntu repositories'
+  sudo: 'yes'
+  apt_repository:
+    repo: "{{ item }}"
+    state: 'present'
+  with_items: 'ubuntu_base_repos'
