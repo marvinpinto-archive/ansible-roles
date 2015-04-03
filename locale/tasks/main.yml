@@ -1,0 +1,18 @@
+---
+- name: 'Install language-pack-en-base'
+  sudo: true
+  apt:
+    pkg: 'language-pack-en-base'
+    state: present
+
+- name: 'Set the default locale'
+  sudo: yes
+  copy:
+    content: "LANG={{ locale_string }}\\nLC_ALL={{ locale_string }}\\n"
+    dest: '/etc/default/locale'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - 'Purge un-needed locales'
+    - 'Reconfigure locales'
