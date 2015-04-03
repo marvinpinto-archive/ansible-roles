@@ -1,0 +1,29 @@
+---
+- name: 'Install apt-transport-https'
+  sudo: 'yes'
+  apt:
+    name: 'apt-transport-https'
+    update_cache: yes
+
+- name: 'Add the docker apt signing key'
+  sudo: 'yes'
+  apt_key:
+    keyserver: 'keyserver.ubuntu.com'
+    id: '36A1D7869245C8950F966E92D8576A8BA88D21E9'
+
+- name: 'Add the docker.io repo'
+  sudo: 'yes'
+  apt_repository:
+    repo: 'deb https://get.docker.com/ubuntu docker main'
+    state: 'present'
+
+- name: 'Install docker'
+  sudo: 'yes'
+  apt:
+    name: 'lxc-docker'
+    update_cache: yes
+
+- name: 'Ensure that the docker service is running'
+  service:
+    name: 'docker'
+    state: started
