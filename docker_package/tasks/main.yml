@@ -24,6 +24,8 @@
     update_cache: yes
 
 - name: 'Ensure that the docker service is running'
+  sudo: true
   service:
     name: 'docker'
     state: started
+    enabled: yes
