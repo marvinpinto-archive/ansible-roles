@@ -1,0 +1,4 @@
+---
+- name: 'Update the local timezone'
+  sudo: yes
+  command: '/usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata'

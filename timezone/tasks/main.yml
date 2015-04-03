@@ -1,0 +1,10 @@
+---
+- name: 'Set the time zone'
+  sudo: yes
+  copy:
+    content: "{{ timezone_string }}\\n"
+    dest: '/etc/timezone'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'Update the local timezone'
