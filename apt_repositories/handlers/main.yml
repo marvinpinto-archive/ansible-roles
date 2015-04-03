@@ -1,0 +1,5 @@
+---
+- name: 'Perform an apt-get upgrade'
+  sudo: true
+  apt:
+    update_cache: yes

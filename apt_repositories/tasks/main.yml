@@ -4,6 +4,7 @@
   file:
     path: '/etc/apt/sources.list'
     state: 'absent'
+  notify: 'Perform an apt-get upgrade'
 
 - name: 'Add the base ubuntu repositories'
   sudo: 'yes'
@@ -11,3 +12,4 @@
     repo: "{{ item }}"
     state: 'present'
   with_items: 'ubuntu_base_repos'
+  notify: 'Perform an apt-get upgrade'
