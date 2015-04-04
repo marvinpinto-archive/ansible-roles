@@ -15,7 +15,7 @@
   apt_repository:
     repo: 'deb https://get.docker.com/ubuntu docker main'
     state: 'present'
-  notify: 'Perform an apt-get upgrade'
+  notify: 'Perform an apt-get update'
 
 - name: 'Install docker'
   sudo: 'yes'
