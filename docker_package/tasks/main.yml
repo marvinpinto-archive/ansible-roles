@@ -17,6 +17,8 @@
     state: 'present'
   notify: 'Perform an apt-get update'
 
+- meta: flush_handlers
+
 - name: 'Install docker'
   sudo: 'yes'
   apt:
