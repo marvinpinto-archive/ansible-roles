@@ -1,0 +1,35 @@
+---
+- name: 'Add the datadog apt signing key'
+  sudo: 'yes'
+  apt_key:
+    keyserver: 'keyserver.ubuntu.com'
+    id: 'C7A7DA52'
+
+- name: 'Add the datadog repo'
+  sudo: 'yes'
+  apt_repository:
+    repo: 'deb http://apt.datadoghq.com/ stable main'
+    state: 'present'
+  notify: 'Perform an apt-get update'
+
+- meta: flush_handlers
+
+- name: 'Install the datadog agent'
+  sudo: 'yes'
+  apt:
+    name: 'datadog-agent'
+
+- name: 'Add the datadog agent config file'
+  sudo: 'yes'
+  template:
+    src: 'datadog.conf.j2'
+    dest: '/etc/dd-agent/datadog.conf'
+  notify:
+    - 'Restart the datadog agent'
+
+- name: 'Ensure that the datadog agent service is running'
+  sudo: true
+  service:
+    name: 'datadog-agent'
+    state: started
+    enabled: yes
