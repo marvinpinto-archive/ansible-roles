@@ -9,8 +9,8 @@
   sudo: yes
   service:
     name: 'ssh'
-    enabled: yes
-    state: started
+    enabled: "{{ sshd_enabled | default(yes) }}"
+    state: "{{ sshd_state | default(started) }}"
 
 - name: 'Create the /etc/ssh/authorized_keys directory'
   sudo: yes
