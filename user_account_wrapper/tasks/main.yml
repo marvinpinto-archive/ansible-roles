@@ -8,6 +8,14 @@
     password: "{{ account_passwordhash }}"
     shell: '/bin/bash'
 
+- name: 'Create the /etc/ssh/authorized_keys directory'
+  sudo: yes
+  file:
+    path: '/etc/ssh/authorized_keys'
+    owner: 'root'
+    group: 'root'
+    state: directory
+
 - name: 'Put the ssh key in place'
   sudo: yes
   authorized_key:
@@ -22,7 +30,7 @@
   sudo: yes
   copy:
     content: "{{ account_sudoers_entry }}\\n"
-    dest: "/etc/sudoers.d/{{ account_username }}"
+    dest: "/etc/sudoers.d/00-{{ account_username }}"
     owner: 'root'
     group: 'root'
     mode: '0440'
