@@ -1,0 +1,23 @@
+---
+- name: 'Create the /opt/mba6x_bl directory'
+  sudo: yes
+  file:
+    dest: '/opt/mba6x_bl'
+    state: directory
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+
+- name: 'Download the mba6xbl deb package'
+  sudo: yes
+  get_url:
+    url: 'http://miek.nl/downloads/2014/mba6xbl-dkms_0.0.3_all.deb'
+    dest: '/opt/mba6x_bl/mba6xbl-dkms_0.0.3_all.deb'
+    mode: '0444'
+
+- name: 'Install the mba6xbl-dkms package'
+  sudo: yes
+  apt:
+    deb: '/opt/mba6x_bl/mba6xbl-dkms_0.0.3_all.deb'
+    state: present
+  notify: 'Load the mba6x_bl module'
