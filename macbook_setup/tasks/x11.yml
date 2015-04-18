@@ -25,3 +25,9 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
+
+- name: 'Install gnome-settings-daemon'
+  sudo: yes
+  apt:
+    name: 'gnome-settings-daemon'
+    state: latest
