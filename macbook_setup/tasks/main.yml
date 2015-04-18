@@ -7,7 +7,6 @@
 - include: virtualbox.yml
 - include: git.yml
 - include: ansible.yml
-- include: keyboard_backlight.yml
 - include: x11.yml
 - include: function_keys.yml
 - include: mba6xbl_dkms.yml
