@@ -1,0 +1,31 @@
+---
+- name: 'Install a bunch of needed programs'
+  sudo: yes
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - 'vim-gtk'
+    - 'tmux'
+    - 'fonts-inconsolata'
+    - 'i3'
+    - 'i3lock'
+    - 'i3status'
+    - 'xbacklight'
+    - 'scrot'
+    - 'imagemagick'
+    - 'xautolock'
+    - 'tree'
+    - 'whois'
+    - 'touchegg'
+    - 'pass'
+
+- name: "Remove a few things I don't care for"
+  sudo: yes
+  apt:
+    name: "{{ item }}"
+    state: absent
+    purge: yes
+  with_items:
+    - 'avahi-daemon'
+    - 'apport'

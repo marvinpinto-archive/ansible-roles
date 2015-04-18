@@ -1,0 +1,12 @@
+---
+- include: networking.yml
+- include: basic_setup.yml
+- include: google_chrome.yml
+- include: dropbox.yml
+- include: vagrant.yml
+- include: virtualbox.yml
+- include: git.yml
+- include: ansible.yml
+- include: keyboard_backlight.yml
+- include: x11.yml
+- include: function_keys.yml
