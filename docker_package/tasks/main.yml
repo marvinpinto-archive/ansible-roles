@@ -30,3 +30,9 @@
     name: 'docker'
     state: started
     enabled: yes
+
+- name: 'Add marvin to the docker group'
+  sudo: yes
+  user:
+    name: 'marvin'
+    groups: 'docker'
