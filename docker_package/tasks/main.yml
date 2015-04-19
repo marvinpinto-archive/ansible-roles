@@ -36,3 +36,4 @@
   user:
     name: 'marvin'
     groups: 'docker'
+    append: yes
