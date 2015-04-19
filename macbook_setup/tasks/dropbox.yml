@@ -18,3 +18,10 @@
   apt:
     name: "dropbox"
     state: latest
+
+- name: 'Fix the Dropbox "Unable to monitor filesystem" issue'
+  sudo: yes
+  lineinfile:
+    dest: '/etc/sysctl.conf'
+    state: present
+    line: 'fs.inotify.max_user_watches = 100000'
