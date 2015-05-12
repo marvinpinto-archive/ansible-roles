@@ -39,13 +39,9 @@
     append: yes
 
 - name: 'Set the docker apparmor profile to complain mode'
-  sudo: true
-  lineinfile:
-    dest: '/etc/rc.local'
-    state: present
-    insertbefore: "^exit 0"
-    line: 'aa-complain /etc/apparmor.d/docker'
-    regexp: '^aa-complain /etc/apparmor.d/docker'
-    owner: 'root'
-    group: 'root'
-    mode: '0755'
+  sudo: yes
+  file:
+    src: '/etc/apparmor.d/docker'
+    dest: '/etc/apparmor.d/force-complain/docker'
+    state: 'link'
+  notify: 'Reload apparmor'
