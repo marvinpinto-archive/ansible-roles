@@ -57,3 +57,8 @@
     - 'libreoffice-pdfimport'
     - 'libreoffice-presentation-minimizer'
     - 'libreoffice-style-human'
+    - 'account-plugin-facebook'
+    - 'account-plugin-flickr'
+    - 'account-plugin-google'
+    - 'libaccount-plugin-generic-oauth'
+    - 'libaccount-plugin-google'
