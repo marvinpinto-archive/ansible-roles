@@ -1,6 +1,6 @@
 ---
 - include: networking.yml
-- include: basic_setup.yml
+- include: programs.yml
 - include: google_chrome.yml
 - include: dropbox.yml
 - include: vagrant.yml
