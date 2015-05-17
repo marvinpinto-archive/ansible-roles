@@ -10,3 +10,4 @@
 - include: x11.yml
 - include: function_keys.yml
 - include: scripts.yml
+- include: sounds.yml
