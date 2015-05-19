@@ -1,0 +1,7 @@
+---
+- name: 'Install the wercker binary'
+  sudo: yes
+  get_url:
+    url: 'https://s3.amazonaws.com/downloads.wercker.com/cli/stable/linux_amd64/wercker'
+    dest: '/usr/local/bin/wercker'
+    mode: '0755'

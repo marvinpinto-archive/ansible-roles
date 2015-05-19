@@ -11,3 +11,4 @@
 - include: function_keys.yml
 - include: scripts.yml
 - include: sounds.yml
+- include: wercker.yml
