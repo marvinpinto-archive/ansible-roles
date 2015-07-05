@@ -19,6 +19,7 @@
     - 'touchegg'
     - 'pass'
     - 'iftop'
+    - 'htop'
 
 - name: "Remove a few things I don't care for"
   sudo: yes
