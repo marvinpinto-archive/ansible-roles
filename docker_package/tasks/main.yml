@@ -10,10 +10,23 @@
     keyserver: 'keyserver.ubuntu.com'
     id: '36A1D7869245C8950F966E92D8576A8BA88D21E9'
 
+- name: 'Add the test docker apt signing key'
+  sudo: 'yes'
+  apt_key:
+    keyserver: 'keyserver.ubuntu.com'
+    id: '740B314AE3941731B942C66ADF4FD13717AAD7D6'
+
 - name: 'Add the docker.io repo'
   sudo: 'yes'
   apt_repository:
     repo: 'deb https://get.docker.com/ubuntu docker main'
+    state: 'present'
+  notify: 'Perform an apt-get update'
+
+- name: 'Add the test docker.io repo'
+  sudo: 'yes'
+  apt_repository:
+    repo: 'deb https://test.docker.com/ubuntu docker main'
     state: 'present'
   notify: 'Perform an apt-get update'
 
@@ -23,6 +36,7 @@
   sudo: 'yes'
   apt:
     name: 'lxc-docker'
+    state: latest
 
 - name: 'Ensure that the docker service is running'
   sudo: true
