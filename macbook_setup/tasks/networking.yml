@@ -24,3 +24,17 @@
     name: 'marvin'
     groups: 'netdev'
     append: yes
+
+- name: 'Start the wicd service'
+  sudo: yes
+  service:
+    name: 'wicd'
+    state: 'started'
+    enabled: yes
+
+- name: 'Wait until the Internet is accessible again'
+  shell: curl --head --silent http://www.freshbooks.com
+  register: result
+  until: result.stdout.find("200 OK") != -1
+  retries: 30
+  delay: 10
