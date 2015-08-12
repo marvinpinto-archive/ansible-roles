@@ -8,25 +8,12 @@
   sudo: 'yes'
   apt_key:
     keyserver: 'keyserver.ubuntu.com'
-    id: '36A1D7869245C8950F966E92D8576A8BA88D21E9'
+    id: '58118E89F3A912897C070ADBF76221572C52609D'
 
-- name: 'Add the test docker apt signing key'
-  sudo: 'yes'
-  apt_key:
-    keyserver: 'keyserver.ubuntu.com'
-    id: '740B314AE3941731B942C66ADF4FD13717AAD7D6'
-
-- name: 'Add the docker.io repo'
+- name: 'Add the official docker repo'
   sudo: 'yes'
   apt_repository:
-    repo: 'deb https://get.docker.com/ubuntu docker main'
-    state: 'present'
-  notify: 'Perform an apt-get update'
-
-- name: 'Add the test docker.io repo'
-  sudo: 'yes'
-  apt_repository:
-    repo: 'deb https://test.docker.com/ubuntu docker main'
+    repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
     state: 'present'
   notify: 'Perform an apt-get update'
 
@@ -35,7 +22,7 @@
 - name: 'Install docker'
   sudo: 'yes'
   apt:
-    name: 'lxc-docker'
+    name: 'docker-engine'
     state: latest
 
 - name: 'Ensure that the docker service is running'
