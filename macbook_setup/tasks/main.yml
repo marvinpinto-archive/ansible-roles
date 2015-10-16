@@ -13,3 +13,4 @@
 - include: sounds.yml
 - include: devbox.yml
 - include: netextender.yml
+- include: yubikey.yml
