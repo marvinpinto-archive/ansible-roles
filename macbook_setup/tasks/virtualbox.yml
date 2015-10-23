@@ -19,6 +19,6 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - 'virtualbox-4.3'
+    - 'virtualbox-5.0'
     - 'dkms'
 
