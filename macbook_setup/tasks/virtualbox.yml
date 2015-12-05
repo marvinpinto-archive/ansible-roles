@@ -47,3 +47,10 @@
   sudo: yes
   command: '/usr/bin/VBoxManage extpack install --replace /usr/local/etc/virtualbox/Oracle_VM_VirtualBox_Extension_Pack-5.0.10-104061.vbox-extpack'
   when: extension_pack_binary.stat.exists == False
+
+- name: 'Add marvin to the vboxusers group'
+  sudo: yes
+  user:
+    name: 'marvin'
+    groups: 'vboxusers'
+    append: yes
