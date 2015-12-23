@@ -33,7 +33,7 @@
     enabled: yes
 
 - name: 'Wait until the Internet is accessible again'
-  shell: curl --head --silent http://www.freshbooks.com
+  shell: curl --head --silent https://www.freshbooks.com
   register: result
   until: result.stdout.find("200 OK") != -1
   retries: 30
