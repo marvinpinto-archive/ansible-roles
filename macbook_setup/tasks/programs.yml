@@ -18,6 +18,7 @@
     - 'iftop'
     - 'htop'
     - 'editorconfig'
+    - 'simplestreams'
 
 - name: "Remove a few things I don't care for"
   sudo: yes
