@@ -8,6 +8,13 @@
     password: "{{ account_passwordhash }}"
     shell: '/bin/bash'
 
+- name: 'Add the user to the specified groups'
+  sudo: true
+  user:
+    name: '{{ account_username }}'
+    append: true
+    groups: '{{ account_groups }}'
+
 - name: 'Create the /etc/ssh/authorized_keys directory'
   sudo: yes
   file:
