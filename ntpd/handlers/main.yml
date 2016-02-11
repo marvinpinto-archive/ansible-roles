@@ -1,6 +1,0 @@
----
-- name: 'Restart NTP daemon'
-  sudo: true
-  service:
-    name: 'ntp'
-    state: 'restarted'
