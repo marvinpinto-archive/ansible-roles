@@ -1,4 +1,0 @@
----
-- name: 'Reload apparmor'
-  sudo: yes
-  command: '/usr/sbin/service apparmor reload'
