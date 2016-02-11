@@ -12,7 +12,7 @@
   apt_repository:
     repo: "{{ item }}"
     state: 'present'
-  with_items: 'ubuntu_base_repos'
+  with_items: '{{ ubuntu_base_repos }}'
   notify: 'Perform an apt-get update'
 
 - meta: flush_handlers
