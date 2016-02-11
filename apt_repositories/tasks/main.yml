@@ -1,6 +1,5 @@
 ---
 - name: 'Ensure the /etc/apt/sources.list file contains ~nothing'
-  sudo: 'yes'
   copy:
     dest: '/etc/apt/sources.list'
     content: '# This is a stub'
@@ -10,11 +9,10 @@
   notify: 'Perform an apt-get update'
 
 - name: 'Add the base ubuntu repositories'
-  sudo: 'yes'
   apt_repository:
     repo: "{{ item }}"
     state: 'present'
-  with_items: 'ubuntu_base_repos'
+  with_items: '{{ ubuntu_base_repos }}'
   notify: 'Perform an apt-get update'
 
 - meta: flush_handlers

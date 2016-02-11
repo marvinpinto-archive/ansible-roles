@@ -13,6 +13,11 @@
     state: latest
     force: yes
 
+- name: 'Perform an apt-get update'
+  sudo: yes
+  apt:
+    update_cache: yes
+
 - name: 'Install i3wm + friends'
   sudo: yes
   apt:

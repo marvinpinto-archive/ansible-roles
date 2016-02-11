@@ -2,7 +2,9 @@
 - name: 'Set the time zone'
   sudo: yes
   copy:
-    content: "{{ timezone_string }}\\n"
+    content: |
+      {{ timezone_string }}
+      
     dest: '/etc/timezone'
     owner: 'root'
     group: 'root'

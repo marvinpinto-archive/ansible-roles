@@ -8,7 +8,10 @@
 - name: 'Set the default locale'
   sudo: yes
   copy:
-    content: "LANG={{ locale_string }}\\nLC_ALL={{ locale_string }}\\n"
+    content: |
+      LANG={{ locale_string }}
+      LC_ALL={{ locale_string }}
+      
     dest: '/etc/default/locale'
     owner: 'root'
     group: 'root'

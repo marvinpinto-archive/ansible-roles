@@ -29,7 +29,9 @@
 - name: 'Create an /etc/sudoers.d entry for this user'
   sudo: yes
   copy:
-    content: "{{ account_sudoers_entry }}\\n"
+    content: |
+      {{ account_sudoers_entry }}
+      
     dest: "/etc/sudoers.d/00-{{ account_username }}"
     owner: 'root'
     group: 'root'
