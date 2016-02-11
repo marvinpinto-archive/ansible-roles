@@ -1,6 +1,0 @@
----
-- name: 'Restart the datadog agent'
-  sudo: 'yes'
-  service:
-    name: 'datadog-agent'
-    state: 'restarted'
